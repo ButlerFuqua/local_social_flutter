@@ -6,13 +6,39 @@ class LoginScreen extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  static const routeName = '/';
+  static const routeName = '/login';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  bool login() {
+    print(emailController.text);
+    print(passwordController.text);
+    return true;
+  }
+
+  void handleLogin() {
+    if (!login()) {
+      Navigator.pushReplacementNamed(context, BulletinScreen.routeName);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Error Logging in'),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +57,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   border: UnderlineInputBorder(),
                   labelText: 'Email',
                 ),
-                onChanged: (text) {
-                  print('First text field: $text');
-                },
+                controller: emailController,
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'Password',
+                ),
+                controller: passwordController,
               ),
               ElevatedButton(
-                child: Text('Login'),
-                onPressed: () => Navigator.pushReplacementNamed(
-                    context, BulletinScreen.routeName),
+                child: const Text('Login'),
+                onPressed: handleLogin,
               ),
             ],
           ),
