@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './bulletinScreen.dart';
+import 'bulletinScreen.dart';
+import '../utils/loginUtils.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -21,14 +22,10 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-  bool login() {
-    print(emailController.text);
-    print(passwordController.text);
-    return true;
-  }
-
   void handleLogin() {
-    if (!login()) {
+    final email = emailController.text;
+    final password = passwordController.text;
+    if (LoginUtils.loginUser(email, password)) {
       Navigator.pushReplacementNamed(context, BulletinScreen.routeName);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(

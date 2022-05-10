@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './loginScreen.dart';
+import 'loginScreen.dart';
 
 class BulletinScreen extends StatelessWidget {
   const BulletinScreen({Key? key}) : super(key: key);

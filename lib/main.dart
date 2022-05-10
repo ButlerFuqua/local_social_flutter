@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_social_flutter/screens/bulletinScreen.dart';
-import './screens/loginScreen.dart';
+import 'screens/loginScreen.dart';
 
 void main() {
   runApp(const MyApp());
