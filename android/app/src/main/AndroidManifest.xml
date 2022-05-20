@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.local_social_flutter">
+    package="com.butlerfuqua.local_social">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="local_social_flutter"
+        android:label="Local Social"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
